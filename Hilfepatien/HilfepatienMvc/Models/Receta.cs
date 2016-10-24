@@ -13,6 +13,6 @@ namespace HilfepatienMvc.Models
         public String Nombre_Paciente { get; set; }
         public DateTime Fecha { get; set; }
 
-        public virtual <Paciente>Paciente {get;set;}
+        public virtual Paciente Paciente {get;set;}
     }
 }

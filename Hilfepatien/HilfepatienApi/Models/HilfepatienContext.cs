@@ -18,14 +18,11 @@ namespace HilfepatienApi.Models
         public DbSet<Proveedor> Proveedores { get; set; }
         public DbSet<Receta> Recetas { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
-        protected override void OnModelCreating(DbModelBuilder MerksysContext)
+        protected override void OnModelCreating(DbModelBuilder HilfepatienContext)
         {
-            MerksysContext.Conventions.Remove<PluralizingTableNameConvention>();
+            HilfepatienContext.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
-        internal int SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

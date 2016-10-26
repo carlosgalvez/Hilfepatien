@@ -4,36 +4,69 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using HilfepatienApi.Models;
 
 namespace HilfepatienApi.Controllers
 {
     public class PacienteController : ApiController
     {
+         private HilfepatienContext db = new HilfepatienContext()
         // GET api/paciente
-        public IEnumerable<string> Get()
+        public List<Paciente> Get()
         {
-            return new string[] { "value1", "value2" };
+            return db.Pacientes.ToList();
         }
 
         // GET api/paciente/5
-        public string Get(int id)
+        public List<Paciente>Get(int Id)
         {
-            return "value";
+            return db.Pacientes.where(e=> e.Id==Id).ToList();
         }
 
         // POST api/paciente
-        public void Post([FromBody]string value)
+        public bool Post(int Id,string Nombre,string Apellido,string Sexo,int Edad,string Direccion, int Telefono)
         {
+            var e = new Paciente
+            {
+                Id=Id,
+                Nombre=Nombre,
+                Apellido=Apellido,
+                Sexo=Sexo,
+                Edad=Edad,
+                Direccion=Direccion,
+                Telefono=Telefono
+
+            };
+            db.Pacientes.Attach(e);
+            db.Entry(e).State = System.Data.Entity.EntityState.Modified;
+            db.Configuration.ValidateOnSaveEnabled = true;
+            return db.SaveChanges() > 0;
         }
 
         // PUT api/paciente/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(string Nombre,string Apellido,string Sexo,int Edad,string Direccion, int Telefono)
         {
+            var Paciente = new Paciente
+            {
+                Nombre=Nombre,
+                Apellido=Apellido,
+                Sexo=Sexo,
+                Edad=Edad,
+                Direccion=Direccion,
+                Telefono=Telefono
+
+            };
+            db.Pacientes.Add(Paciente);
+            return db.SaveChanges() > 0;
         }
 
         // DELETE api/paciente/5
-        public void Delete(int id)
+        public void Delete(int Id)
         {
+            var e=db.Pacientes.Find(Id);
+            db.Pacientes.Attach(e);
+            db.Pacientes.Remove(e);
+            return db.SaveChanges()>0;
         }
     }
 }

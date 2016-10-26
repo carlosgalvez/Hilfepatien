@@ -20,7 +20,7 @@ namespace HilfepatienApi.Controllers
         // GET api/proveedor/5
         public List<Proveedor> Get(int Id )
         {
-            return db.Proveedores.where(e => e.Id == Id).ToList();
+            return db.Proveedores.Where(e => e.Id == Id).ToList();
         }
 
         // POST api/proveedor
@@ -35,7 +35,7 @@ namespace HilfepatienApi.Controllers
                 MedicinaId = MedicinaId
 
             };
-            db.Proveedores.Attach();
+            db.Proveedores.Attach(e);
             db.Entry(e).State = System.Data.Entity.EntityState.Modified;
             db.Configuration.ValidateOnSaveEnabled = true;
             return db.SaveChanges() > 0;
@@ -59,12 +59,12 @@ namespace HilfepatienApi.Controllers
         }
 
         // DELETE api/proveedor/5
-        public void Delete(int Id)
+        public bool Delete(int Id)
         {
             var e = db.Proveedores.Find(Id);
             db.Proveedores.Attach(e);
             db.Proveedores.Remove(e);
-            return db.SaveChanges() > 0;lock;
+            return db.SaveChanges() > 0;
 
         }
     }

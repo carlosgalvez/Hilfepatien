@@ -10,7 +10,7 @@ namespace HilfepatienApi.Controllers
 {
     public class PacienteController : ApiController
     {
-         private HilfepatienContext db = new HilfepatienContext()
+        private HilfepatienContext db = new HilfepatienContext();
         // GET api/paciente
         public List<Paciente> Get()
         {
@@ -20,7 +20,7 @@ namespace HilfepatienApi.Controllers
         // GET api/paciente/5
         public List<Paciente>Get(int Id)
         {
-            return db.Pacientes.where(e=> e.Id==Id).ToList();
+            return db.Pacientes.Where(e=> e.Id==Id).ToList();
         }
 
         // POST api/paciente
@@ -44,7 +44,7 @@ namespace HilfepatienApi.Controllers
         }
 
         // PUT api/paciente/5
-        public void Put(string Nombre,string Apellido,string Sexo,int Edad,string Direccion, int Telefono)
+        public bool Put(string Nombre,string Apellido,string Sexo,int Edad,string Direccion, int Telefono)
         {
             var Paciente = new Paciente
             {
@@ -61,7 +61,7 @@ namespace HilfepatienApi.Controllers
         }
 
         // DELETE api/paciente/5
-        public void Delete(int Id)
+        public bool Delete(int Id)
         {
             var e=db.Pacientes.Find(Id);
             db.Pacientes.Attach(e);

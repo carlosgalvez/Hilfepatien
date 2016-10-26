@@ -21,7 +21,7 @@ namespace HilfepatienApi.Controllers
         // GET api/medicina/5
         public List<Medicina> Get(int Id)
         {
-            return db.Medicinas.where(e => e.Id==Id).Tolist();
+            return db.Medicinas.Where(e => e.Id==Id).ToList();
         }
 
         // POST api/medicina
@@ -58,9 +58,9 @@ namespace HilfepatienApi.Controllers
         }
 
         // DELETE api/medicina/5
-        public void Delete(int Id)
+        public bool Delete(int Id)
         {
-            var e = db.Medicinas.find(Id);
+            var e = db.Medicinas.Find(Id);
             db.Medicinas.Attach(e);
             db.Medicinas.Remove(e);
             return db.SaveChanges() > 0;

@@ -21,7 +21,7 @@ namespace HilfepatienApi.Controllers
         // GET api/empleados/5
         public List<Empleados>Get(int Id)
         {
-            return db.Empleados.where(e=> e.Id==Id).ToList();
+            return db.Empleados.Where(e=> e.Id==Id).ToList();
         }
 
         // POST api/empleados
@@ -60,7 +60,7 @@ namespace HilfepatienApi.Controllers
         }
 
         // DELETE api/empleados/5
-        public void Delete(int Id)
+        public bool Delete(int Id)
         {
             var e = db.Empleados.Find(Id);
             db.Empleados.Attach(e);

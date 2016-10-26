@@ -4,36 +4,59 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using HilfepatienApi.Models;
 
 namespace HilfepatienApi.Controllers
 {
     public class UsuariosController : ApiController
     {
+        private HilfepatienContext db = new HilfepatienContext();
         // GET api/usuarios
-        public IEnumerable<string> Get()
+        public List<Usuarios> Get()
         {
-            return new string[] { "value1", "value2" };
+            return db.Usuarios.ToList();
         }
 
         // GET api/usuarios/5
-        public string Get(int id)
+        public List<Usuarios>Get(int Id)
         {
-            return "value";
+            return db.Usuarios.Where(e => e.Id == Id).ToList();
         }
 
         // POST api/usuarios
-        public void Post([FromBody]string value)
+        public bool Post(int Id, string Contraseña)
         {
+            var e = new Usuarios
+            {
+                Id = Id,
+                Contraseña = Contraseña
+            };
+
+            db.Usuarios.Attach(e);
+            db.Entry(e).State=System.Data.Entity.EntityState.Modified;
+            db.Configuration.ValidateOnSaveEnabled = true;
+            return db.SaveChanges() > 0;
         }
 
         // PUT api/usuarios/5
-        public void Put(int id, [FromBody]string value)
+        public bool Put(string Contraseña)
+
         {
+            var Usuarios = new Usuarios
+            {
+                Contraseña = Contraseña
+            };
+            db.Usuarios.Add(Usuarios);
+            return db.SaveChanges() > 0;
         }
 
         // DELETE api/usuarios/5
-        public void Delete(int id)
+        public bool Delete(int Id)
         {
+            var e = db.Usuarios.Find(Id);
+            db.Usuarios.Attach(e);
+            db.Usuarios.Remove(e);
+            return db.SaveChanges() > 0;
         }
     }
 }

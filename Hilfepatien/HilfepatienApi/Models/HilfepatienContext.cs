@@ -22,5 +22,10 @@ namespace HilfepatienApi.Models
         {
             MerksysContext.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        internal int SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

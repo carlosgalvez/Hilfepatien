@@ -4,36 +4,63 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using HilfepatienApi.Models;
 
 namespace HilfepatienApi.Controllers
 {
     public class RecetaController : ApiController
     {
+        private HilfepatienContext db = new HilfepatienContext();
         // GET api/receta
-        public IEnumerable<string> Get()
+        public List<Receta> Get()
         {
-            return new string[] { "value1", "value2" };
+            return db.Recetas.ToList();
         }
 
         // GET api/receta/5
-        public string Get(int id)
+        public List<Receta> Get(int Id)
         {
-            return "value";
+            return db.Recetas.Where(e => e.Id == Id).ToList();
         }
 
         // POST api/receta
-        public void Post([FromBody]string value)
+        public bool Post(int Id, String Tipo_Medicamento, String Nombre_Medicamento, String Nombre_Paciente, DateTime Fecha)
         {
+            var e = new Receta
+            {
+                Id = Id,
+                Tipo_Medicamento = Tipo_Medicamento,
+                Nombre_Medicamento = Nombre_Medicamento,
+                Nombre_Paciente = Nombre_Paciente,
+                Fecha = Fecha
+            };
+            db.Recetas.Attach(e);
+            db.Entry(e).State = System.Data.Entity.EntityState.Modified;
+            db.Configuration.ValidateOnSaveEnabled = true;
+            return db.SaveChanges() > 0;
         }
 
         // PUT api/receta/5
-        public void Put(int id, [FromBody]string value)
+        public bool Put(String Tipo_Medicamento, String Nombre_Medicamento, String Nombre_Paciente, DateTime Fecha)
         {
+            var Receta = new Receta
+            {
+                Tipo_Medicamento = Tipo_Medicamento,
+                Nombre_Medicamento = Nombre_Medicamento,
+                Nombre_Paciente = Nombre_Paciente,
+                Fecha = Fecha
+            };
+            db.Recetas.Add(Receta);
+            return db.SaveChanges() > 0;
         }
 
         // DELETE api/receta/5
-        public void Delete(int id)
+        public bool Delete(int Id)
         {
+            var e = db.Recetas.Find(Id);
+            db.Recetas.Attach(e);
+            db.Recetas.Remove(e);
+            return db.SaveChanges() > 0;
         }
     }
 }

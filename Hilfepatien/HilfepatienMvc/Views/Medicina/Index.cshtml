@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HilfepatienMvc.Models.Medicina>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 align="center">Lista de medicamentos existentes</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo medicamento", "Create")
+</p>
+<table >
+    <tr>
+        <th>
+           <label>Nombre</label>
+        </th>
+        <th>
+            <label>Id. Proveedor</label> 
+        </th>
+        <th>
+           <label>Presentacion</label>
+        </th>
+        <th>
+        <label>Tipo de medicamento</label>   
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdProveedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Presentacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipodeMedicamento)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

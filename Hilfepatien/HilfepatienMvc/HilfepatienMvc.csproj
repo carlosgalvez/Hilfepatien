@@ -45,15 +45,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -120,7 +119,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\MedicinaController.cs" />
     <Compile Include="Controllers\MedicoController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
@@ -150,7 +148,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -171,19 +171,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Medico\Index.cshtml" />
+    <Content Include="Views\Medicina\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Medico\Details.cshtml" />
+    <Content Include="Views\Medicina\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Medico\Create.cshtml" />
+    <Content Include="Views\Medicina\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Medico\Edit.cshtml" />
+    <Content Include="Views\Medicina\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Medico\Delete.cshtml" />
+    <Content Include="Views\Medicina\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

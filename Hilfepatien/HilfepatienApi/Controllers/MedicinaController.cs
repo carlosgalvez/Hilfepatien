@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -25,13 +25,12 @@ namespace HilfepatienApi.Controllers
         }
 
         // POST api/medicina
-        public bool Post(int Id, string Nombre, int IdProveedor, string presentacion, string TipodeMedicamento)
+        public bool Post(int Id, string Nombre, string presentacion, string TipodeMedicamento)
         {
             var e = new Medicina
             {
                 Id = Id,
                 Nombre = Nombre,
-                IdProveedor = IdProveedor,
                 Presentacion = presentacion,
                 TipodeMedicamento = TipodeMedicamento
 
@@ -44,12 +43,11 @@ namespace HilfepatienApi.Controllers
         }
 
         // PUT api/medicina/5
-        public bool Put(string Nombre, int IdProveedor, string presentacion, string TipodeMedicamento)
+        public bool Put(string Nombre, string presentacion, string TipodeMedicamento)
         {
            var Medicina=new Medicina
            {
                Nombre=Nombre,
-               IdProveedor=IdProveedor,
                Presentacion=presentacion,
                TipodeMedicamento=TipodeMedicamento
            };

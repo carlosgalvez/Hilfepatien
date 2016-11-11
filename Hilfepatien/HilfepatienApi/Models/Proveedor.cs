@@ -13,6 +13,8 @@ namespace HilfepatienApi.Models
         public string Direccion { get; set; }
         public int MedicinaId { get; set; }
         public virtual Medicina Medicina { get; set; }
+       
+       
 
     }
 }

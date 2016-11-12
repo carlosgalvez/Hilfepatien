@@ -1,0 +1,43 @@
+﻿@model HilfepatienMvc.Models.Receta
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Receta</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tipo_Medicamento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tipo_Medicamento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nombre_Medicamento)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre_Medicamento)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nombre_Paciente)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre_Paciente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fecha)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

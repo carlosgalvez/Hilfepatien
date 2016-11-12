@@ -1,0 +1,59 @@
+﻿@model HilfepatienMvc.Models.Empleados
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Empleados</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nombre)
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Puesto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Puesto)
+            @Html.ValidationMessageFor(model => model.Puesto)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fecha_Ingreso)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fecha_Ingreso)
+            @Html.ValidationMessageFor(model => model.Fecha_Ingreso)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sueldo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sueldo)
+            @Html.ValidationMessageFor(model => model.Sueldo)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

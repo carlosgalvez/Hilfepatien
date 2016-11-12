@@ -1,0 +1,43 @@
+﻿@model HilfepatienMvc.Models.Empleados
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Empleados</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Puesto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Puesto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fecha_Ingreso)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fecha_Ingreso)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sueldo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sueldo)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

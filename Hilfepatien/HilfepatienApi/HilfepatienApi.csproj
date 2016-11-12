@@ -182,6 +182,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610261318373_InitialCreate.cs" />
+    <Compile Include="Migrations\201610261318373_InitialCreate.Designer.cs">
+      <DependentUpon>201610261318373_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610281413286_Initial.cs" />
+    <Compile Include="Migrations\201610281413286_Initial.Designer.cs">
+      <DependentUpon>201610281413286_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\HilfepatienContext.cs" />
     <Compile Include="Models\Medicina.cs" />
     <Compile Include="Models\Medico.cs" />
@@ -304,17 +313,22 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Medico.cshtml" />
-    <Content Include="Views\Paciente.cshtml" />
-    <Content Include="Views\Proveedor.cshtml" />
-    <Content Include="Views\Receta.cshtml" />
-    <Content Include="Views\Usuario.cshtml" />
+    <Content Include="Views\Empleados.cshtml" />
+    <Content Include="Views\Medicina.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610261318373_InitialCreate.resx">
+      <DependentUpon>201610261318373_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610281413286_Initial.resx">
+      <DependentUpon>201610281413286_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

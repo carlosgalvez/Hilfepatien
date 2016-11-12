@@ -24,12 +24,14 @@ namespace HilfepatienApi.Controllers
         }
 
         // POST api/usuarios
-        public bool Post(int Id, string Contraseña)
+        public bool Post(int Id, string Contraseña, int Medico_Id,int Paciente_Id)
         {
             var e = new Usuarios
             {
                 Id = Id,
-                Contraseña = Contraseña
+                Contraseña = Contraseña,
+                Medico_Id = Medico_Id,
+                Paciente_Id = Paciente_Id
             };
 
             db.Usuarios.Attach(e);
@@ -39,12 +41,15 @@ namespace HilfepatienApi.Controllers
         }
 
         // PUT api/usuarios/5
-        public bool Put(string Contraseña)
+        public bool Put(string Contraseña, int Medico_Id, int Paciente_Id)
 
         {
             var Usuarios = new Usuarios
             {
-                Contraseña = Contraseña
+                Contraseña = Contraseña,
+                Medico_Id= Medico_Id
+
+
             };
             db.Usuarios.Add(Usuarios);
             return db.SaveChanges() > 0;

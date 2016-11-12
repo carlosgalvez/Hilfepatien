@@ -34,6 +34,7 @@ namespace HilfepatienApi.Controllers
                 Direccion = Direccion,
                 MedicinaId = MedicinaId
 
+
             };
             db.Proveedores.Attach(e);
             db.Entry(e).State = System.Data.Entity.EntityState.Modified;
@@ -42,7 +43,7 @@ namespace HilfepatienApi.Controllers
         }
 
         // PUT api/proveedor/5
-        public bool Put(string Nombre, int Telefono, string Direccion, int MedicinaId)
+        public bool Put(string Nombre, int Telefono, string Direccion,int MedicinaId)
         {
 
             var Proveedor = new Proveedor
@@ -51,6 +52,7 @@ namespace HilfepatienApi.Controllers
                 Telefono = Telefono,
                 Direccion = Direccion,
                 MedicinaId = MedicinaId
+               
 
             };
             db.Proveedores.Add(Proveedor);

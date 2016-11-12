@@ -24,7 +24,7 @@ namespace HilfepatienApi.Controllers
         }
 
         // POST api/receta
-        public bool Post(int Id, String Tipo_Medicamento, String Nombre_Medicamento, String Nombre_Paciente, DateTime Fecha)
+        public bool Post(int Id, String Tipo_Medicamento, String Nombre_Medicamento, String Nombre_Paciente, DateTime Fecha,int Paciente_Id)
         {
             var e = new Receta
             {
@@ -33,6 +33,7 @@ namespace HilfepatienApi.Controllers
                 Nombre_Medicamento = Nombre_Medicamento,
                 Nombre_Paciente = Nombre_Paciente,
                 Fecha = Fecha
+               
             };
             db.Recetas.Attach(e);
             db.Entry(e).State = System.Data.Entity.EntityState.Modified;
@@ -49,6 +50,7 @@ namespace HilfepatienApi.Controllers
                 Nombre_Medicamento = Nombre_Medicamento,
                 Nombre_Paciente = Nombre_Paciente,
                 Fecha = Fecha
+                
             };
             db.Recetas.Add(Receta);
             return db.SaveChanges() > 0;

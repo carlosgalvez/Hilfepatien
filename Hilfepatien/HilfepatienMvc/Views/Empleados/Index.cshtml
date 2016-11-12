@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HilfepatienMvc.Models.Medico>
+﻿@model IEnumerable<HilfepatienMvc.Models.Empleados>
 
 @{
     ViewBag.Title = "Index";
@@ -15,13 +15,13 @@
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Apellido)
+            @Html.DisplayNameFor(model => model.Puesto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Especialidad)
+            @Html.DisplayNameFor(model => model.Fecha_Ingreso)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Telefono)
+            @Html.DisplayNameFor(model => model.Sueldo)
         </th>
         <th></th>
     </tr>
@@ -32,13 +32,13 @@
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Apellido)
+            @Html.DisplayFor(modelItem => item.Puesto)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Especialidad)
+            @Html.DisplayFor(modelItem => item.Fecha_Ingreso)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
+           $@Html.DisplayFor(modelItem => item.Sueldo)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

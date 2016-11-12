@@ -1,4 +1,4 @@
-﻿@model HilfepatienMvc.Models.Medico
+﻿@model HilfepatienMvc.Models.Paciente
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>Medico</legend>
+    <legend>Paciente</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Nombre)
@@ -24,10 +24,24 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Especialidad)
+         @Html.DisplayNameFor(model => model.Sexo)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Especialidad)
+        @Html.DisplayFor(model => model.Sexo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Edad)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Edad)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Direccion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Direccion)
     </div>
 
     <div class="display-label">

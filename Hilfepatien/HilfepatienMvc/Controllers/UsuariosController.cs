@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HilfepatienMvc.Models;
 
 namespace HilfepatienMvc.Controllers
 {
     public class UsuariosController : Controller
     {
+        private HilfepatienContext db = new HilfepatienContext();
+
         //
         // GET: /Usuarios/
 
         public ActionResult Index()
         {
-            return View();
+            return View(db.Usuarios.ToList());
         }
 
         //
         // GET: /Usuarios/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id = 0)
         {
-            return View();
+            Usuarios usuarios = db.Usuarios.Find(id);
+            if (usuarios == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuarios);
         }
 
         //
@@ -36,70 +46,78 @@ namespace HilfepatienMvc.Controllers
         // POST: /Usuarios/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Usuarios usuarios)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Usuarios.Add(usuarios);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(usuarios);
         }
 
         //
         // GET: /Usuarios/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
-            return View();
+            Usuarios usuarios = db.Usuarios.Find(id);
+            if (usuarios == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuarios);
         }
 
         //
         // POST: /Usuarios/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Usuarios usuarios)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(usuarios).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(usuarios);
         }
 
         //
         // GET: /Usuarios/Delete/5
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id = 0)
         {
-            return View();
+            Usuarios usuarios = db.Usuarios.Find(id);
+            if (usuarios == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuarios);
         }
 
         //
         // POST: /Usuarios/Delete/5
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Usuarios usuarios = db.Usuarios.Find(id);
+            db.Usuarios.Remove(usuarios);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

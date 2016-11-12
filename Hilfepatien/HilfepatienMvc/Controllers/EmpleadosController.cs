@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HilfepatienMvc.Models;
 
 namespace HilfepatienMvc.Controllers
 {
     public class EmpleadosController : Controller
     {
+        private HilfepatienContext db = new HilfepatienContext();
+
         //
         // GET: /Empleados/
 
         public ActionResult Index()
         {
-            return View();
+            return View(db.Empleados.ToList());
         }
 
         //
         // GET: /Empleados/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id = 0)
         {
-            return View();
+            Empleados empleados = db.Empleados.Find(id);
+            if (empleados == null)
+            {
+                return HttpNotFound();
+            }
+            return View(empleados);
         }
 
         //
@@ -36,70 +46,78 @@ namespace HilfepatienMvc.Controllers
         // POST: /Empleados/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Empleados empleados)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Empleados.Add(empleados);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(empleados);
         }
 
         //
         // GET: /Empleados/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
-            return View();
+            Empleados empleados = db.Empleados.Find(id);
+            if (empleados == null)
+            {
+                return HttpNotFound();
+            }
+            return View(empleados);
         }
 
         //
         // POST: /Empleados/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Empleados empleados)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(empleados).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(empleados);
         }
 
         //
         // GET: /Empleados/Delete/5
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id = 0)
         {
-            return View();
+            Empleados empleados = db.Empleados.Find(id);
+            if (empleados == null)
+            {
+                return HttpNotFound();
+            }
+            return View(empleados);
         }
 
         //
         // POST: /Empleados/Delete/5
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Empleados empleados = db.Empleados.Find(id);
+            db.Empleados.Remove(empleados);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

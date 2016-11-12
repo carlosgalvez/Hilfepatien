@@ -1,4 +1,4 @@
-﻿@model HilfepatienMvc.Models.Medico
+﻿@model HilfepatienMvc.Models.Receta
 
 @{
     ViewBag.Title = "Details";
@@ -7,34 +7,34 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>Medico</legend>
+    <legend>Receta</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre)
+         @Html.DisplayNameFor(model => model.Tipo_Medicamento)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Apellido)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Apellido)
+        @Html.DisplayFor(model => model.Tipo_Medicamento)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Especialidad)
+         @Html.DisplayNameFor(model => model.Nombre_Medicamento)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Especialidad)
+        @Html.DisplayFor(model => model.Nombre_Medicamento)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Telefono)
+         @Html.DisplayNameFor(model => model.Nombre_Paciente)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Telefono)
+        @Html.DisplayFor(model => model.Nombre_Paciente)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fecha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fecha)
     </div>
 </fieldset>
 <p>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HilfepatienMvc.Models.Medico>
+﻿@model IEnumerable<HilfepatienMvc.Models.Receta>
 
 @{
     ViewBag.Title = "Index";
@@ -12,16 +12,16 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nombre)
+            @Html.DisplayNameFor(model => model.Tipo_Medicamento)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Apellido)
+            @Html.DisplayNameFor(model => model.Nombre_Medicamento)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Especialidad)
+            @Html.DisplayNameFor(model => model.Nombre_Paciente)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Telefono)
+            @Html.DisplayNameFor(model => model.Fecha)
         </th>
         <th></th>
     </tr>
@@ -29,16 +29,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
+            @Html.DisplayFor(modelItem => item.Tipo_Medicamento)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Apellido)
+            @Html.DisplayFor(modelItem => item.Nombre_Medicamento)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Especialidad)
+            @Html.DisplayFor(modelItem => item.Nombre_Paciente)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
+            @Html.DisplayFor(modelItem => item.Fecha)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

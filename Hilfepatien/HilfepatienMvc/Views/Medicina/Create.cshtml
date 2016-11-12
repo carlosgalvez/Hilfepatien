@@ -1,4 +1,4 @@
-﻿@model HilfepatienMvc.Models.Medico
+﻿@model HilfepatienMvc.Models.Medicina
 
 @{
     ViewBag.Title = "Create";
@@ -11,7 +11,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Medico</legend>
+        <legend>Medicina</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Nombre)
@@ -22,27 +22,27 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Apellido)
+            @Html.LabelFor(model => model.IdProveedor)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Apellido)
-            @Html.ValidationMessageFor(model => model.Apellido)
+            @Html.EditorFor(model => model.IdProveedor)
+            @Html.ValidationMessageFor(model => model.IdProveedor)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Especialidad)
+            @Html.LabelFor(model => model.Presentacion)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Especialidad)
-            @Html.ValidationMessageFor(model => model.Especialidad)
+            @Html.EditorFor(model => model.Presentacion)
+            @Html.ValidationMessageFor(model => model.Presentacion)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Telefono)
+            @Html.LabelFor(model => model.TipodeMedicamento)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Telefono)
-            @Html.ValidationMessageFor(model => model.Telefono)
+            @Html.EditorFor(model => model.TipodeMedicamento)
+            @Html.ValidationMessageFor(model => model.TipodeMedicamento)
         </div>
 
         <p>

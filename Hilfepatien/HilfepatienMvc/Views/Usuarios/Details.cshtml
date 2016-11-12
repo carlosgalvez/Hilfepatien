@@ -1,0 +1,22 @@
+﻿@model HilfepatienMvc.Models.Usuarios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Usuarios</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Contraseña)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Contraseña)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

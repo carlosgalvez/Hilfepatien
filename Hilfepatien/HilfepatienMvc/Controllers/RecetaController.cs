@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HilfepatienMvc.Models;
 
 namespace HilfepatienMvc.Controllers
 {
     public class RecetaController : Controller
     {
+        private HilfepatienContext db = new HilfepatienContext();
+
         //
         // GET: /Receta/
 
         public ActionResult Index()
         {
-            return View();
+            return View(db.Recetas.ToList());
         }
 
         //
         // GET: /Receta/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id = 0)
         {
-            return View();
+            Receta receta = db.Recetas.Find(id);
+            if (receta == null)
+            {
+                return HttpNotFound();
+            }
+            return View(receta);
         }
 
         //
@@ -36,70 +46,78 @@ namespace HilfepatienMvc.Controllers
         // POST: /Receta/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Receta receta)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Recetas.Add(receta);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(receta);
         }
 
         //
         // GET: /Receta/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
-            return View();
+            Receta receta = db.Recetas.Find(id);
+            if (receta == null)
+            {
+                return HttpNotFound();
+            }
+            return View(receta);
         }
 
         //
         // POST: /Receta/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Receta receta)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(receta).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(receta);
         }
 
         //
         // GET: /Receta/Delete/5
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id = 0)
         {
-            return View();
+            Receta receta = db.Recetas.Find(id);
+            if (receta == null)
+            {
+                return HttpNotFound();
+            }
+            return View(receta);
         }
 
         //
         // POST: /Receta/Delete/5
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Receta receta = db.Recetas.Find(id);
+            db.Recetas.Remove(receta);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

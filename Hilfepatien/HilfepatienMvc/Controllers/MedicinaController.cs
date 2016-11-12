@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HilfepatienMvc.Models;
 
 namespace HilfepatienMvc.Controllers
 {
     public class MedicinaController : Controller
     {
+        private HilfepatienContext db = new HilfepatienContext();
+
         //
         // GET: /Medicina/
 
         public ActionResult Index()
         {
-            return View();
+            return View(db.Medicinas.ToList());
         }
 
         //
         // GET: /Medicina/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id = 0)
         {
-            return View();
+            Medicina medicina = db.Medicinas.Find(id);
+            if (medicina == null)
+            {
+                return HttpNotFound();
+            }
+            return View(medicina);
         }
 
         //
@@ -36,70 +46,78 @@ namespace HilfepatienMvc.Controllers
         // POST: /Medicina/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Medicina medicina)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Medicinas.Add(medicina);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(medicina);
         }
 
         //
         // GET: /Medicina/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
-            return View();
+            Medicina medicina = db.Medicinas.Find(id);
+            if (medicina == null)
+            {
+                return HttpNotFound();
+            }
+            return View(medicina);
         }
 
         //
         // POST: /Medicina/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Medicina medicina)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(medicina).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(medicina);
         }
 
         //
         // GET: /Medicina/Delete/5
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id = 0)
         {
-            return View();
+            Medicina medicina = db.Medicinas.Find(id);
+            if (medicina == null)
+            {
+                return HttpNotFound();
+            }
+            return View(medicina);
         }
 
         //
         // POST: /Medicina/Delete/5
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Medicina medicina = db.Medicinas.Find(id);
+            db.Medicinas.Remove(medicina);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

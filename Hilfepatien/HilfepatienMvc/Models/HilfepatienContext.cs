@@ -18,9 +18,9 @@ namespace HilfepatienMvc.Models
         public DbSet<Proveedor> Proveedores { get; set; }
         public DbSet<Receta> Recetas { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
-         protected override void OnModelCreating(DbModelBuilder MerksysContext)
+         protected override void OnModelCreating(DbModelBuilder Model)
        {
-           MerksysContext.Conventions.Remove<PluralizingTableNameConvention>();
+           Model.Conventions.Remove<PluralizingTableNameConvention>();
        }
     }
 }

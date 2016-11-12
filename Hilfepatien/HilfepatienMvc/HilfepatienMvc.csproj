@@ -119,12 +119,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\MedicinaController.cs" />
-    <Compile Include="Controllers\MedicoController.cs" />
-    <Compile Include="Controllers\PacienteController.cs" />
-    <Compile Include="Controllers\ProveedorController.cs" />
-    <Compile Include="Controllers\RecetaController.cs" />
-    <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

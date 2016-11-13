@@ -313,6 +313,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Empleados.cshtml" />
+    <Content Include="Views\Medicina.cshtml" />
+    <Content Include="Views\Medico.cshtml" />
+    <Content Include="Views\Paciente.cshtml" />
+    <Content Include="Views\Proveedor.cshtml" />
+    <Content Include="Views\Receta.cshtml" />
+    <Content Include="Views\Usuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,53 +4,87 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<head>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/images/LOGOTIPO.png" />
 
-    <fieldset>
-        <legend>Receta</legend>
+</head>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Tipo_Medicamento)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Tipo_Medicamento)
-            @Html.ValidationMessageFor(model => model.Tipo_Medicamento)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nombre_Medicamento)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nombre_Medicamento)
-            @Html.ValidationMessageFor(model => model.Nombre_Medicamento)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nombre_Paciente)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nombre_Paciente)
-            @Html.ValidationMessageFor(model => model.Nombre_Paciente)
-        </div>
+<font face="Felix Titling">
+    <font color="Cyan"><DIV ALIGN=center><h1>Nueva receta</h1></DIV></font>
+</font>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Fecha)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Fecha)
-            @Html.ValidationMessageFor(model => model.Fecha)
-        </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
+<DIV ALIGN=center>
+    <font face="News706 BT">
+        <font size="4">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+                <fieldset>
+                    <legend>Receta</legend>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Tipo_Medicamento)
+                    </div>
+
+
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Tipo_Medicamento)
+                        @Html.ValidationMessageFor(model => model.Tipo_Medicamento)
+                    </div>
+
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Nombre_Medicamento)
+                    </div>
+
+
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Nombre_Medicamento)
+                        @Html.ValidationMessageFor(model => model.Nombre_Medicamento)
+                    </div>
+
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Nombre_Paciente)
+                    </div>
+
+
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Nombre_Paciente)
+                        @Html.ValidationMessageFor(model => model.Nombre_Paciente)
+                    </div>
+
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Fecha)
+                    </div>
+
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Fecha)
+                        @Html.ValidationMessageFor(model => model.Fecha)
+                    </div>
+
+                    <br>
+                    <p>
+                            <input type="submit" value="Create" />
+                                                                         </p>
+
+                </fieldset>
+            }
+
+            <div>
+                <button type="button" class="btn btn-default">
+                 @Html.ActionLink("Back to List", "Index")
+                </button>
 </div>
+        </font>
+    </font>
+</DIV>

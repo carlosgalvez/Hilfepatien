@@ -10,44 +10,67 @@
     <link rel="shortcut icon" href="~/images/LOGOTIPO.png" />
 
 </head>
-<h2>Delete</h2>
+<font face="Felix Titling">
+    <font color="Microsoft JhengHei">
+        <DIV ALIGN=center>
+            <h2>Delete</h2>
+        </DIV>
+    </font>
+</font>
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Receta</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Tipo_Medicamento)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Tipo_Medicamento)
-    </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre_Medicamento)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre_Medicamento)
-    </div>
+<DIV ALIGN=center>
+    <font face="Microsoft JhengHei">
+        <font size="4">
+            <h3>Are you sure you want to delete this?</h3>
+        </font>
+    </font>
+</DIV>
+<DIV ALIGN=center>
+    <font face="Microsoft JhengHei">
+        <font size="4">
+            <fieldset>
+                <legend>Receta</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre_Paciente)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre_Paciente)
-    </div>
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.Tipo_Medicamento)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Tipo_Medicamento)
+                </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fecha)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Fecha)
-    </div>
-</fieldset>
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.Nombre_Medicamento)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Nombre_Medicamento)
+                </div>
+
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.Nombre_Paciente)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Nombre_Paciente)
+                </div>
+
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Fecha)
+                </div>
+            </fieldset>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <p>
+                    <input class="btn btn-default" type="submit" value="Delete" /> |
+                    <button type="button" class="btn btn-default">
+                        @Html.ActionLink("Back to List", "Index")
+                        </button>
+</p>
+            }
+            </font>
+        </font>
+</DIV>

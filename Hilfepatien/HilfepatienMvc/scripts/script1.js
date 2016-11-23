@@ -1,11 +1,11 @@
 
 array_imagen = new Array(3)
 array_imagen[0] = new Image(600,200) 
-array_imagen[0].src = "imagenes/1.jpg" 
+array_imagen[0].src = "~/images/1.jpg"
 array_imagen[1] = new Image(600,200)
-array_imagen[1].src = "imagenes/2.jpg" 
+array_imagen[1].src = "~/images/2.jpg"
 array_imagen[2] = new Image(600,200) 
-array_imagen[2].src = "imagenes/3.jpg" 
+array_imagen[2].src = "~/images/3.jpg"
 //creo el array de URLs 
 array_url = new Array(3) 
 array_url[0] = "#" 

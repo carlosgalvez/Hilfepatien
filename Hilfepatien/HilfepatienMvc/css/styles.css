@@ -1,10 +1,25 @@
-﻿@charset "utf-8";
-/* CSS Document */
+﻿
+*{
+    /*background-color: #41FFF4;*/
+    font-size:20px;
+  margin: 0px;
+	padding: 0px;
+ 
+}
 body {
-	background:#6EBBFF2;
-    /*background-image: url('~/images/fondo1.jpg');*/
-	}
+background:'~/images/fondo1.jpg';
 
+}
+
+.ltraarriba {
+font-size:36px;
+font-family:'Segoe Script';
+
+}
+
+.register {
+       width:95%;
+  }
 .fancyNav{
 	/* Affects the UL element */
 	overflow: hidden;

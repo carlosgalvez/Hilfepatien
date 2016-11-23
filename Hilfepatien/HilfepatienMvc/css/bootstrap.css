@@ -10,8 +10,8 @@ html {
       -ms-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
-  
+  margin: 1px;
+  background-color:#76FF98;
 }
 article,
 aside,
@@ -6751,8 +6751,8 @@ button.close {
   }
 }
 @media print {
-  .hidden-print {
-    display: none !important;
-  }
+    .hidden-print {
+        display: none !important;
+    }
 }
 /*# sourceMappingURL=bootstrap.css.map */

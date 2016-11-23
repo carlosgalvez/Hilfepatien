@@ -1,90 +1,95 @@
 ﻿@model HilfepatienMvc.Models.Receta
-
-@{
-    ViewBag.Title = "Create";
-}
-
+<!DOCTYPE html>
+<html>
 
 <head>
     <link href="~/css/bootstrap.css" rel="stylesheet" />
     <link href="~/css/styles.css" rel="stylesheet" />
     <link rel="shortcut icon" href="~/images/LOGOTIPO.png" />
-
+    <title>Crear Receta</title>
 </head>
 
-    
 
-<font face="Felix Titling">
-    <font color="Microsoft JhengHei"><DIV ALIGN=center><h1>Nueva receta</h1></DIV></font>
-</font>
-
-
-<DIV ALIGN=center>
-    <font face="Microsoft JhengHei">
-        <font size="4">
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
-
-                <fieldset>
-                    <legend>Receta</legend>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Tipo_Medicamento)
-                    </div>
-
-
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Tipo_Medicamento)
-                        @Html.ValidationMessageFor(model => model.Tipo_Medicamento)
-                    </div>
-
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Nombre_Medicamento)
-                    </div>
-
-
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Nombre_Medicamento)
-                        @Html.ValidationMessageFor(model => model.Nombre_Medicamento)
-                    </div>
-
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Nombre_Paciente)
-                    </div>
-
-
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Nombre_Paciente)
-                        @Html.ValidationMessageFor(model => model.Nombre_Paciente)
-                    </div>
-
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Fecha)
-                    </div>
-
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Fecha)
-                        @Html.ValidationMessageFor(model => model.Fecha)
-                    </div>
-
-                    <br>
-                    <p>
-                        <input class="btn btn-default" type="submit" value="Create" />
-                                                                         </p>
-
-                </fieldset>
-            }
-
-            <div>
-                <button type="button" class="btn btn-default">
-                 @Html.ActionLink("Back to List", "Index")
-                </button>
-</div>
-        </font>
+<div class="well well-sm">
+    <font face="Felix Titling">
+        <font color="Microsoft JhengHei"><DIV ALIGN=center><h1>Nueva receta</h1></DIV></font>
     </font>
-</DIV>
+    </div>
+
+    <body background="~/images/fondo1.jpg">
+        <div ALIGN=center>
+            <font face="Microsoft JhengHei">
+                <font size="4">
+                    @using (Html.BeginForm())
+            {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                            <legend>Receta</legend>
+
+                            <div class="editor-label">
+                                <label>Tipo Medicamento</label>
+                            </div>
+
+
+                            <div class="editor-field">
+
+
+                                @Html.EditorFor(model => model.Tipo_Medicamento)
+                                @Html.ValidationMessageFor(model => model.Tipo_Medicamento)
+
+
+                            </div>
+
+
+                            <div class="editor-label">
+                                <label>Nombre Medicamento</label>
+                            </div>
+
+
+                            <div class="editor-field">
+
+                                @Html.EditorFor(model => model.Nombre_Medicamento)
+                                @Html.ValidationMessageFor(model => model.Nombre_Medicamento)
+                            </div>
+
+
+                            <div class="editor-label">
+                                <label>Nombre Paciente</label>
+                            </div>
+
+
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Nombre_Paciente)
+                                @Html.ValidationMessageFor(model => model.Nombre_Paciente)
+                            </div>
+
+
+                            <div class="editor-label">
+                                <label>Fecha</label>
+                            </div>
+
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Fecha)
+                                @Html.ValidationMessageFor(model => model.Fecha)
+                            </div>
+
+                            <br>
+                            <p>
+                                <input class="btn btn-default" type="submit" value="Create" />
+                            </p>
+
+                        </fieldset>
+                    }
+
+                    <div>
+
+                        @Html.ActionLink("Back to List", "Index")
+
+                    </div>
+                </font>
+            </font>
+        </div>
+    </body>
+</html>

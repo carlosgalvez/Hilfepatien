@@ -1,51 +1,74 @@
 ﻿@model IEnumerable<HilfepatienMvc.Models.Receta>
 
-@{
-    ViewBag.Title = "Index";
-}
+    @{
+        ViewBag.Title = "Index";
+    }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo_Medicamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre_Medicamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre_Paciente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th></th>
-    </tr>
+    <head>
+        <link href="~/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/css/styles.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="~/images/LOGOTIPO.png" />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo_Medicamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre_Medicamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre_Paciente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    </head>
 
-</table>
+
+    <DIV ALIGN=center>
+        <font face="News706 BT">
+            <font size="4">
+                <h2>Index</h2>
+            </font>
+        </font>
+    </DIV>
+
+    <DIV ALIGN=center>
+        <font face="News706 BT">
+            <font size="4">
+
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Tipo_Medicamento)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nombre_Medicamento)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nombre_Paciente)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Fecha)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tipo_Medicamento)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre_Medicamento)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre_Paciente)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fecha)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </font>
+        </font>
+    </DIV>

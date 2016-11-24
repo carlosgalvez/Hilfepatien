@@ -26,6 +26,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>12.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -133,14 +134,14 @@
       <DependentUpon>201610241425461_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Empleados.cs" />
-    <Compile Include="Models\HilfepatienContext.cs" />
-    <Compile Include="Models\Medicina.cs" />
-    <Compile Include="Models\Medico.cs" />
-    <Compile Include="Models\Paciente.cs" />
-    <Compile Include="Models\Proveedor.cs" />
-    <Compile Include="Models\Receta.cs" />
-    <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="Views\Models\Empleados.cs" />
+    <Compile Include="Views\Models\HilfepatienContext.cs" />
+    <Compile Include="Views\Models\Medicina.cs" />
+    <Compile Include="Views\Models\Medico.cs" />
+    <Compile Include="Views\Models\Paciente.cs" />
+    <Compile Include="Views\Models\Proveedor.cs" />
+    <Compile Include="Views\Models\Receta.cs" />
+    <Compile Include="Views\Models\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +149,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

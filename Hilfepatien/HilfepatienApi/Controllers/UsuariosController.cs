@@ -35,7 +35,7 @@ namespace HilfepatienApi.Controllers
             };
 
             db.Usuarios.Attach(e);
-            db.Entry(e).State=System.Data.Entity.EntityState.Modified;
+            db.Entry(e).State=System.Data.EntityState.Modified;
             db.Configuration.ValidateOnSaveEnabled = true;
             return db.SaveChanges() > 0;
         }

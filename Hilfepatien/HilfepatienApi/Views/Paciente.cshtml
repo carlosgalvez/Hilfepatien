@@ -2,4 +2,139 @@
     ViewBag.Title = "Paciente";
 }
 
+  
+<head title="">
+    <style type="text/css">
+        #tblContainer, #tblcollections, #tblCRUD, td {
+            border: double;
+        }
+
+        th {
+            background-color: darkgray;
+        }
+
+        #dvcollection {
+            height: 700px;
+            overflow-y: scroll;
+        }
+    </style>
+
+
+</head>
 <h2>Paciente</h2>
+<body>
+    <table id="tblContainer" ng-controller="crudController">
+        <tr>
+            <td>
+                <table id="tblCRUD">
+                    <tr>
+                        <td>
+                            <span>Id</span>
+                        </td>
+                        <td>
+                            <input type="text" id="eno" readonly="readonly" ng-model="Id" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Nombre</span>
+                        </td>
+                        <td>
+                            <input type="text" id="ename" required ng-model="Nombre" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Apellido</span>
+                        </td>
+                        <td>
+                            <input type="text" id="ape" required ng-model="Apellido" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Sexo</span>
+                        </td>
+                        <td>
+                            <input type="text" id="sexo" required ng-model="Sexo" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Edad</span>
+                        </td>
+                        <td>
+                            <input type="text" id="edad" required ng-model="Edad" />
+                        </td>
+                        </tr>
+                    <tr>
+                        <td>
+                            <span>Direccion</span>
+                        </td>
+                        <td>
+                            <input type="text" id="direc" required ng-model="Direccion" />
+                        </td>
+                        </tr>
+                    <tr>
+                        <td>
+                            <span>Telefono</span>
+                        </td>
+                        <td>
+                            <input type="text" id="tele" required ng-model="Telefono" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" id="new" value="New" ng-click="clear()" />
+                        </td>
+                        <td>
+                            <input type="button" id="save" value="Save" ng-click="save()" />
+                        </td>
+                        <td>
+                            <input type="button" id="delete" value="Delete" ng-click="delete()" />
+                        </td>
+                    </tr>
+                </table>
+                <div>{{Message}}</div>
+            </td>
+            <td>
+                <div id="dvcollection">
+                    <table id="tblcollections">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Sexo</th>
+                                <th>Edad</th>
+                                <th>Direccion</th>
+                                <th>Telefono</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="Emp in Paciente">
+                            <tr ng-click="get(Emp)">
+                                <td> <span>{{Emp.Id}}</span></td>
+                                <td> <span>{{Emp.Nombre}}</span></td>
+                                <td> <span>{{Emp.Apellido}}</span></td>
+                                <td> <span>{{Emp.Sexo}}</span></td>
+                                <td> <span>{{Emp.Edad}}</span></td>
+                                <td> <span>{{Emp.Direccion}}</span></td>
+                                <td> <span>{{Emp.Telefono}}</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="~/Scripts/MyScripts/Module.js"></script>
+<script src="~/Scripts/MyScripts/Service.js"></script>
+<script src="~/Scripts/MyScripts/Controller.js"></script>
+    
+        

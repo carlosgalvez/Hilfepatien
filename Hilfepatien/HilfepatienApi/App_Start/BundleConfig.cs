@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿    using System.Web;
 using System.Web.Optimization;
 
 namespace HilfepatienApi
@@ -38,6 +38,9 @@ namespace HilfepatienApi
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+                         "~/Scripts/knockout-{version}.js"));
         }
     }
 }

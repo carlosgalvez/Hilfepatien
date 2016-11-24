@@ -13,6 +13,8 @@ namespace HilfepatienApi.Migrations
             ContextKey = "HilfepatienApi.Models.HilfepatienContext";
         }
 
+        public string ContextKey { get; private set; }
+
         protected override void Seed(HilfepatienApi.Models.HilfepatienContext context)
         {
             //  This method will be called after migrating to the latest version.

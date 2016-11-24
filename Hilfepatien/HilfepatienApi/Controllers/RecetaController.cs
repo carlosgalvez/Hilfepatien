@@ -10,6 +10,12 @@ namespace HilfepatienApi.Controllers
 {
     public class RecetaController : ApiController
     {
+        private IEnumerable<Receta> Recetas = new List<Receta>
+        {
+
+
+        };
+
         private HilfepatienContext db = new HilfepatienContext();
         // GET api/receta
         public List<Receta> Get()
@@ -32,11 +38,14 @@ namespace HilfepatienApi.Controllers
                 Tipo_Medicamento = Tipo_Medicamento,
                 Nombre_Medicamento = Nombre_Medicamento,
                 Nombre_Paciente = Nombre_Paciente,
-                Fecha = Fecha
+   
+                Fecha = Fecha 
+               
                
             };
             db.Recetas.Attach(e);
-            db.Entry(e).State = System.Data.Entity.EntityState.Modified;
+
+            db.Entry(e).State = System.Data.EntityState.Modified;
             db.Configuration.ValidateOnSaveEnabled = true;
             return db.SaveChanges() > 0;
         }

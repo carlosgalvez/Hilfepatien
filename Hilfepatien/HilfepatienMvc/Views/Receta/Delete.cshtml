@@ -1,8 +1,8 @@
 ﻿@model HilfepatienMvc.Models.Receta
 
-@{
-    ViewBag.Title = "Delete";
-}
+<!DOCTYPE html>
+<html>
+
 
 <head>
     <link href="~/css/bootstrap.css" rel="stylesheet" />
@@ -20,57 +20,71 @@
 
 
 
-<DIV ALIGN=center>
-    <font face="Microsoft JhengHei">
-        <font size="4">
-            <h3>Are you sure you want to delete this?</h3>
-        </font>
+
+<div ALIGN=center>
+    <font face="Felix Titling">
+        <h3>Are you sure you want to delete this?</h3>
     </font>
-</DIV>
-<DIV ALIGN=center>
-    <font face="Microsoft JhengHei">
-        <font size="4">
-            <fieldset>
-                <legend>Receta</legend>
+    </div>
 
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Tipo_Medicamento)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.Tipo_Medicamento)
-                </div>
 
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Nombre_Medicamento)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.Nombre_Medicamento)
-                </div>
+    <body background="~/images/fondo1.jpg">
 
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Nombre_Paciente)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.Nombre_Paciente)
-                </div>
+        <div ALIGN=center>
+            <font face="Microsoft JhengHei">
+                <font size="4">
+                    <fieldset>
+                        <br>
+                        <legend>Receta</legend>
+                        <br>
 
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Fecha)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.Fecha)
-                </div>
-            </fieldset>
-            @using (Html.BeginForm())
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Tipo_Medicamento)
+                        </div>
+                        <br>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Tipo_Medicamento)
+                        </div>
+                        <br>
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Nombre_Medicamento)
+                        </div>
+                        <br>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Nombre_Medicamento)
+                        </div>
+                        <br>
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Nombre_Paciente)
+                        </div>
+                        <br>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Nombre_Paciente)
+                        </div>
+                        <br>
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.Fecha)
+                        </div>
+                        <br>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.Fecha)
+                        </div>
+                        <br>
+                    </fieldset>
+                    @using (Html.BeginForm())
             {
-                @Html.AntiForgeryToken()
-                <p>
-                    <input class="btn btn-default" type="submit" value="Delete" /> |
-                    <button type="button" class="btn btn-default">
-                        @Html.ActionLink("Back to List", "Index")
-                        </button>
-</p>
-            }
+                        @Html.AntiForgeryToken()
+                        <br>
+                        <p>
+                            <input class="btn btn-default" type="submit" value="Delete" /> |
+
+                            @Html.ActionLink("Back to List", "Index")
+
+                        </p>
+                    }
+                </font>
             </font>
-        </font>
-</DIV>
+
+        </div>
+    </body>
+</html>

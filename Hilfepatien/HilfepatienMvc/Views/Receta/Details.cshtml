@@ -1,8 +1,7 @@
 ﻿@model HilfepatienMvc.Models.Receta
 
-@{
-    ViewBag.Title = "Details";
-}
+<!DOCTYPE html>
+<html>
 
 <head>
     <link href="~/css/bootstrap.css" rel="stylesheet" />
@@ -19,44 +18,49 @@
     </font>
 </font>
 
-<DIV ALIGN=center>
-    <font face="Microsoft JhengHei">
-        <font size="4">
-            <fieldset>
-                <legend>Receta</legend>
+<body background="~/images/fondo1.jpg">
 
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Tipo_Medicamento)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.Tipo_Medicamento)
-                </div>
+    <div ALIGN=center>
+        <font face="Microsoft JhengHei">
+            <font size="4">
+                <fieldset>
+                    <br>
+                    <legend>Receta</legend>
+                    <br>
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model.Tipo_Medicamento)
+                    </div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.Tipo_Medicamento)
+                    </div>
 
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Nombre_Medicamento)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.Nombre_Medicamento)
-                </div>
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model.Nombre_Medicamento)
+                    </div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.Nombre_Medicamento)
+                    </div>
 
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Nombre_Paciente)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.Nombre_Paciente)
-                </div>
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model.Nombre_Paciente)
+                    </div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.Nombre_Paciente)
+                    </div>
 
-                <div class="display-label">
-                    @Html.DisplayNameFor(model => model.Fecha)
-                </div>
-                <div class="display-field">
-                    @Html.DisplayFor(model => model.Fecha)
-                </div>
-            </fieldset>
-            <p>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-                @Html.ActionLink("Back to List", "Index")
-            </p>
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </div>
+                    <div class="display-field">
+                        @Html.DisplayFor(model => model.Fecha)
+                    </div>
+                </fieldset>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </font>
         </font>
-    </font>
-</DIV>
+    </div>
+    </body>
+</html>

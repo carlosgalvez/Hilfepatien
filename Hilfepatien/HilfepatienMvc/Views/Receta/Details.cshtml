@@ -4,40 +4,59 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<head>
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/images/LOGOTIPO.png" />
 
-<fieldset>
-    <legend>Receta</legend>
+</head>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Tipo_Medicamento)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Tipo_Medicamento)
-    </div>
+<font face="Felix Titling">
+    <font color="Microsoft JhengHei">
+        <DIV ALIGN=center>
+            <h2>Details</h2>
+        </DIV>
+    </font>
+</font>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre_Medicamento)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre_Medicamento)
-    </div>
+<DIV ALIGN=center>
+    <font face="Microsoft JhengHei">
+        <font size="4">
+            <fieldset>
+                <legend>Receta</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre_Paciente)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre_Paciente)
-    </div>
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.Tipo_Medicamento)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Tipo_Medicamento)
+                </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fecha)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Fecha)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.Nombre_Medicamento)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Nombre_Medicamento)
+                </div>
+
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.Nombre_Paciente)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Nombre_Paciente)
+                </div>
+
+                <div class="display-label">
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.Fecha)
+                </div>
+            </fieldset>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </font>
+    </font>
+</DIV>

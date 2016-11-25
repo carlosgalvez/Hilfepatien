@@ -1,51 +1,82 @@
 ﻿@model IEnumerable<HilfepatienMvc.Models.Receta>
 
-@{
-    ViewBag.Title = "Index";
-}
+                      <!DOCTYPE html>
+                      <html>
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo_Medicamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre_Medicamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre_Paciente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th></th>
-    </tr>
+                      <head>
+                          <link href="~/css/bootstrap.css" rel="stylesheet" />
+                          <link href="~/css/styles.css" rel="stylesheet" />
+                          <link rel="shortcut icon" href="~/images/LOGOTIPO.png" />
+                          <title>Receta</title>
+                      </head>
+                      <body background="~/images/fondo1.jpg">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo_Medicamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre_Medicamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre_Paciente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
 
-</table>
+                          <font face="Felix Titling">
+                              <font color="Microsoft JhengHei">
+                                  <div ALIGN=center>
+                                      <h2>Index</h2>
+                                  </div>
+                              </font>
+                          </font>
+
+
+
+
+                          <p>
+                              
+                                     @Html.ActionLink("Create New", "Create")
+                          </p>
+
+                          <table class="table table-borderer">
+                              <div ALIGN=center>
+                                  <font face="News706 BT">
+                                      <font size="4">
+
+                                          <tr>
+                                              <th>
+                                                  @Html.DisplayNameFor(model => model.Tipo_Medicamento)
+                                              </th>
+                                              <th>
+                                                  @Html.DisplayNameFor(model => model.Nombre_Medicamento)
+                                              </th>
+                                              <th>
+                                                  @Html.DisplayNameFor(model => model.Nombre_Paciente)
+                                              </th>
+                                              <th>
+                                                  @Html.DisplayNameFor(model => model.Fecha)
+                                              </th>
+                                              <th></th>
+                                          </tr>
+
+                                          @foreach (var item in Model)
+                                          {
+                                              <tr>
+                                                  <td>
+                                                      @Html.DisplayFor(modelItem => item.Tipo_Medicamento)
+                                                  </td>
+                                                  <td>
+                                                      @Html.DisplayFor(modelItem => item.Nombre_Medicamento)
+                                                  </td>
+                                                  <td>
+                                                      @Html.DisplayFor(modelItem => item.Nombre_Paciente)
+                                                  </td>
+                                                  <td>
+                                                      @Html.DisplayFor(modelItem => item.Fecha)
+                                                  </td>
+                                                  <td>
+                                                      @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                                      @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                                      @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                                  </td>
+                                              </tr>
+                                          }
+                                      </font>
+                                  </font>
+                              </div>
+
+                          </table>
+                      </body>
+
+</html>

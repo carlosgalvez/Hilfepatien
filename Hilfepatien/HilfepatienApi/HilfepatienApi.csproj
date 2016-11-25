@@ -320,6 +320,9 @@
     <Content Include="Views\Proveedor.cshtml" />
     <Content Include="Views\Receta.cshtml" />
     <Content Include="Views\Usuario.cshtml" />
+    <Content Include="Views\sobreNosotros.cshtml" />
+    <Content Include="Views\IniciarSesion.cshtml" />
+    <Content Include="Views\Registro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

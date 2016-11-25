@@ -1122,6 +1122,7 @@
     <Content Include="Views\Proveedor.cshtml" />
     <Content Include="Views\Receta.cshtml" />
     <Content Include="Views\Usuario.cshtml" />
+    <Content Include="Views\sobreNosotros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
